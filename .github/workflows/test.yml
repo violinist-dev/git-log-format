@@ -57,7 +57,7 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           env_vars: PHP
           fail_ci_if_error: false
-          files: ./test/output/clover.xml
+          files: ./data/tmp/coverage.xml
           flags: unittests
           name: codecov
           verbose: true
