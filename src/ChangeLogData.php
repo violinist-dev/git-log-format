@@ -84,9 +84,9 @@ class ChangeLogData
         foreach ($this->lines as $line) {
             $data = $this->parseSingleLine($line);
             if (!empty($data['link'])) {
-                $output .= sprintf("- [%s](%s) %s\n", $data['hash'], $data['link'], $data['message']);
+                $output .= sprintf("- [%s](%s) `%s`\n", $data['hash'], $data['link'], $data['message']);
             } else {
-                $output .= sprintf("- %s %s\n", $data['hash'], $data['message']);
+                $output .= sprintf("- %s `%s`\n", $data['hash'], $data['message']);
             }
         }
         return $output;
