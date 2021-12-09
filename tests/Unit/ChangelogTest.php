@@ -13,8 +13,8 @@ class ChangelogTest extends TestCase
     {
         $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
         $markdown = $data->getAsMarkdown();
-        $this->assertEquals('- ababab change 1
-- fefefe change 2
+        $this->assertEquals('- ababab `change 1`
+- fefefe `change 2`
 ', $markdown);
     }
 
@@ -23,8 +23,8 @@ class ChangelogTest extends TestCase
         $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
         $data->setGitSource('https://github.com/violinist-dev/git-log-format');
         $markdown = $data->getAsMarkdown();
-        $this->assertEquals('- [ababab](https://github.com/violinist-dev/git-log-format/commit/ababab) change 1
-- [fefefe](https://github.com/violinist-dev/git-log-format/commit/fefefe) change 2
+        $this->assertEquals('- [ababab](https://github.com/violinist-dev/git-log-format/commit/ababab) `change 1`
+- [fefefe](https://github.com/violinist-dev/git-log-format/commit/fefefe) `change 2`
 ', $markdown);
     }
 
@@ -33,8 +33,8 @@ class ChangelogTest extends TestCase
         $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
         $data->setGitSource('https://git.drupal.org/project/violinist_projects');
         $markdown = $data->getAsMarkdown();
-        $this->assertEquals('- [ababab](https://git.drupalcode.org/project/violinist_projects/commit/ababab) change 1
-- [fefefe](https://git.drupalcode.org/project/violinist_projects/commit/fefefe) change 2
+        $this->assertEquals('- [ababab](https://git.drupalcode.org/project/violinist_projects/commit/ababab) `change 1`
+- [fefefe](https://git.drupalcode.org/project/violinist_projects/commit/fefefe) `change 2`
 ', $markdown);
     }
 
@@ -43,8 +43,8 @@ class ChangelogTest extends TestCase
         $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
         $data->setGitSource('https://git.drupalcode.org/project/violinist_projects');
         $markdown = $data->getAsMarkdown();
-        $this->assertEquals('- [ababab](https://git.drupalcode.org/project/violinist_projects/commit/ababab) change 1
-- [fefefe](https://git.drupalcode.org/project/violinist_projects/commit/fefefe) change 2
+        $this->assertEquals('- [ababab](https://git.drupalcode.org/project/violinist_projects/commit/ababab) `change 1`
+- [fefefe](https://git.drupalcode.org/project/violinist_projects/commit/fefefe) `change 2`
 ', $markdown);
     }
 
@@ -59,7 +59,7 @@ class ChangelogTest extends TestCase
     {
         $data = ChangeLogData::createFromString('aba test test');
         $data->setGitSource('http://example.com');
-        $this->assertEquals('- aba test test
+        $this->assertEquals('- aba `test test`
 ', $data->getAsMarkdown());
     }
 
@@ -70,7 +70,7 @@ class ChangelogTest extends TestCase
     {
         $data = DummyChangeLog::createFromString('aba test test');
         $data->setGitSource('http://example.com');
-        $this->assertEquals('- aba test test
+        $this->assertEquals('- aba `test test`
 ', $data->getAsMarkdown());
     }
 
