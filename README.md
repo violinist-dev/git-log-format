@@ -3,7 +3,6 @@
 
 [![Packagist](https://img.shields.io/packagist/v/violinist-dev/git-log-format.svg?maxAge=3600)](https://packagist.org/packages/violinist-dev/git-log-format)
 [![Packagist](https://img.shields.io/packagist/dt/violinist-dev/git-log-format.svg?maxAge=3600)](https://packagist.org/packages/violinist-dev/git-log-format)
-[![Build Status](https://travis-ci.org/violinist-dev/git-log-format.svg?branch=master)](https://travis-ci.org/violinist-dev/git-log-format)
 [![Coverage Status](https://coveralls.io/repos/github/violinist-dev/git-log-format/badge.svg?branch=master)](https://coveralls.io/github/violinist-dev/git-log-format?branch=master)
 [![Violinist enabled](https://img.shields.io/badge/violinist-enabled-brightgreen.svg)](https://violinist.io)
 
