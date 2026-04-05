@@ -48,6 +48,26 @@ class ChangelogTest extends TestCase
 ', $markdown);
     }
 
+    public function testWithGitlabLinks()
+    {
+        $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
+        $data->setGitSource('https://gitlab.com/eiriksm/violinist');
+        $markdown = $data->getAsMarkdown();
+        $this->assertEquals('- [ababab](https://gitlab.com/eiriksm/violinist/-/commit/ababab) `change 1`
+- [fefefe](https://gitlab.com/eiriksm/violinist/-/commit/fefefe) `change 2`
+', $markdown);
+    }
+
+    public function testWithBitbucketLinks()
+    {
+        $data = ChangeLogData::createFromString("ababab change 1\nfefefe change 2");
+        $data->setGitSource('https://bitbucket.org/violinist-dev/git-log-format');
+        $markdown = $data->getAsMarkdown();
+        $this->assertEquals('- [ababab](https://bitbucket.org/violinist-dev/git-log-format/commits/ababab) `change 1`
+- [fefefe](https://bitbucket.org/violinist-dev/git-log-format/commits/fefefe) `change 2`
+', $markdown);
+    }
+
     public function testEmptyLines()
     {
         $data = ChangeLogData::createFromString("");
