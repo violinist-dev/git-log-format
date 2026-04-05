@@ -37,6 +37,8 @@ class ChangeLogData
     {
         $suported_prefixes = [
             'https://github.com/',
+            'https://gitlab.com/',
+            'https://bitbucket.org/',
             'https://git.drupal.org',
             'https://git.drupalcode.org'
         ];
@@ -131,6 +133,12 @@ class ChangeLogData
         switch ($url_parsed['host']) {
             case 'github.com':
                 return sprintf('%s/commit/%s', $url, $commit);
+
+            case 'gitlab.com':
+                return sprintf('%s/-/commit/%s', $url, $commit);
+
+            case 'bitbucket.org':
+                return sprintf('%s/commits/%s', $url, $commit);
 
             case 'git.drupalcode.org':
             case 'git.drupal.org':
